@@ -1,0 +1,143 @@
+diff --git a/data/theme/gnome-shell-sass/_colors.scss b/data/theme/gnome-shell-sass/_colors.scss
+index d2f406b..c7a3ff4 100644
+--- a/data/theme/gnome-shell-sass/_colors.scss
++++ b/data/theme/gnome-shell-sass/_colors.scss
+@@ -5,7 +5,7 @@
+ 
+ $is_highcontrast:false;
+ 
+-$_dark_base_color: desaturate($dark_4, 100%);
++$_dark_base_color: $dark_grey;
+ 
+ $base_color: if($variant == 'light', $light_1, $_dark_base_color);
+ $bg_color: if($variant == 'light', $light_2, lighten($base_color, 5%));
+diff --git a/data/theme/gnome-shell-sass/_palette.scss b/data/theme/gnome-shell-sass/_palette.scss
+index 78847d9..0fce959 100644
+--- a/data/theme/gnome-shell-sass/_palette.scss
++++ b/data/theme/gnome-shell-sass/_palette.scss
+@@ -1,46 +1,65 @@
+ //GNOME Color Palette
+-$blue_1: #99c1f1;
+-$blue_2: #62a0ea;
+-$blue_3: #3584e4;
+-$blue_4: #1c71d8;
+-$blue_5: #1a5fb4;
+-$green_1: #8ff0a4;
+-$green_2: #57e389;
+-$green_3: #33d17a;
+-$green_4: #2ec27e;
+-$green_5: #26a269;
+-$yellow_1: #f9f06b;
+-$yellow_2: #f8e45c;
+-$yellow_3: #f6d32d;
+-$yellow_4: #f5c211;
+-$yellow_5: #e5a50a;
+-$orange_1: #ffbe6f;
+-$orange_2: #ffa348;
+-$orange_3: #ff7800;
+-$orange_4: #e66100;
+-$orange_5: #c64600;
+-$red_1: #f66151;
+-$red_2: #ed333b;
+-$red_3: #e01b24;
+-$red_4: #c01c28;
+-$red_5: #a51d2d;
+-$purple_1: #dc8add;
+-$purple_2: #c061cb;
+-$purple_3: #9141ac;
+-$purple_4: #813d9c;
+-$purple_5: #613583;
+-$brown_1: #cdab8f;
+-$brown_2: #b5835a;
+-$brown_3: #986a44;
+-$brown_4: #865e3c;
+-$brown_5: #63452c;
+-$light_1: #ffffff;
+-$light_2: #f6f5f4;
+-$light_3: #deddda;
+-$light_4: #c0bfbc;
+-$light_5: #9a9996;
+-$dark_1: #77767b;
+-$dark_2: #5e5c64;
+-$dark_3: #3d3846;
+-$dark_4: #241f31;
+-$dark_5: #000000;
+\ No newline at end of file
++$pale: #F9F8F5;
++$grey: #272822;
++$dark_grey: #1d1e19;
++$dust_grey: #6e7066;
++$yellow: #e0db75;
++$orange: #fd972c;
++$purple: #ae80fd;
++$red: #e42069;
++$blue: #65d9ee;
++$green: #a6e33a;
++
++$blue_1: lighten($green, 10%);
++$blue_2: $green;
++$blue_3: darken($green, 10%);
++$blue_4: darken($green, 20%);
++$blue_5: darken($green, 30%);
++
++$green_1: lighten($blue, 10%);
++$green_2: $blue;
++$green_3: darken($blue, 10%);
++$green_4: darken($blue, 20%);
++$green_5: darken($blue, 30%);
++
++$yellow_1: lighten($yellow, 10%);
++$yellow_2: $yellow;
++$yellow_3: darken($yellow, 10%);
++$yellow_4: darken($yellow, 20%);
++$yellow_5: darken($yellow, 30%);
++
++$orange_1: lighten($orange, 10%);
++$orange_2: $orange;
++$orange_3: darken($orange, 10%);
++$orange_4: darken($orange, 20%);
++$orange_5: darken($orange, 30%);
++
++$red_1: lighten($red, 10%);
++$red_2: $red;
++$red_3: darken($red, 10%);
++$red_4: darken($red, 20%);
++$red_5: darken($red, 30%);
++
++$purple_1: lighten($purple, 10%);
++$purple_2: $purple;
++$purple_3: darken($purple, 10%);
++$purple_4: darken($purple, 20%);
++$purple_5: darken($purple, 30%);
++
++$brown_1: lighten($dark_grey, 10%);
++$brown_2: $dark_grey;
++$brown_3: darken($dark_grey, 10%);
++$brown_4: darken($dark_grey, 20%);
++$brown_5: darken($dark_grey, 30%);
++
++$light_1: lighten($pale, 10%);
++$light_2: $pale;
++$light_3: darken($pale, 10%);
++$light_4: darken($pale, 20%);
++$light_5: darken($pale, 30%);
++
++$dark_1: lighten($grey, 10%);
++$dark_2: $grey;
++$dark_3: darken($grey, 10%);
++$dark_4: darken($grey, 20%);
++$dark_5: darken($grey, 30%);
+\ No newline at end of file
+diff --git a/data/theme/gnome-shell-sass/widgets/_panel.scss b/data/theme/gnome-shell-sass/widgets/_panel.scss
+index 487eb0f..39acc2c 100644
+--- a/data/theme/gnome-shell-sass/widgets/_panel.scss
++++ b/data/theme/gnome-shell-sass/widgets/_panel.scss
+@@ -1,7 +1,7 @@
+ /* Top Bar */
+ // a.k.a. the panel
+ 
+-$panel_bg_color: #000;
++$panel_bg_color: $grey;
+ $panel_fg_color: if($variant == 'light', lighten($bg_color, 10%), darken($fg_color, 5%));
+ $panel_height: 2.2em;
+ $panel_transition_duration: 250ms; // same as the overview transition duration

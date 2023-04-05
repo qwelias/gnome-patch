@@ -1,0 +1,174 @@
+diff --git a/src/stylesheet/_defaults.scss b/src/stylesheet/_defaults.scss
+index d671f4a..d0d9d65 100644
+--- a/src/stylesheet/_defaults.scss
++++ b/src/stylesheet/_defaults.scss
+@@ -32,36 +32,36 @@
+ @define-color error_color #{if($variant == 'dark', #ff7b63, "@red_4")};
+ 
+ // Window
+-@define-color window_bg_color #{if($variant == 'light', #fafafa, #242424)};
+-@define-color window_fg_color #{if($variant == 'light', transparentize(black, .2), white)};
++@define-color window_bg_color #{if($variant == 'light', #fafafa, "@dark_2")};
++@define-color window_fg_color #{if($variant == 'light', transparentize(black, .2), "@light_2")};
+ 
+ // Views - e.g. text view or tree view
+-@define-color view_bg_color #{if($variant == 'light', #ffffff, #1e1e1e)};
+-@define-color view_fg_color #{if($variant == 'light', transparentize(black, .2), white)};
++@define-color view_bg_color #{if($variant == 'light', #ffffff, "@brown_2")};
++@define-color view_fg_color #{if($variant == 'light', transparentize(black, .2), "@light_2")};
+ 
+ // Header bar, search bar, tab bar
+-@define-color headerbar_bg_color #{if($variant == 'light', #ebebeb, #303030)};
+-@define-color headerbar_fg_color #{if($variant == 'light', transparentize(black, .2), white)};
+-@define-color headerbar_border_color #{if($variant == 'light', transparentize(black, .2), white)};
++@define-color headerbar_bg_color #{if($variant == 'light', #ebebeb, "@dark_1")};
++@define-color headerbar_fg_color #{if($variant == 'light', transparentize(black, .2), "@light_2")};
++@define-color headerbar_border_color #{if($variant == 'light', transparentize(black, .2), "@light_2")};
+ @define-color headerbar_backdrop_color @window_bg_color;
+ @define-color headerbar_shade_color #{if($variant == 'light', transparentize(black, .93), transparentize(black, .64))};
+ 
+ // Cards, boxed lists
+-@define-color card_bg_color #{if($variant == 'light', #ffffff, transparentize(white, .92))};
+-@define-color card_fg_color #{if($variant == 'light', transparentize(black, .2), white)};
++@define-color card_bg_color #{if($variant == 'light', #ffffff, "@dark_1")};
++@define-color card_fg_color #{if($variant == 'light', transparentize(black, .2), "@light_2")};
+ @define-color card_shade_color #{if($variant == 'light', transparentize(black, .93), transparentize(black, .64))};
+ 
+ // Dialogs
+-@define-color dialog_bg_color #{if($variant == 'light', #fafafa, #383838)};
+-@define-color dialog_fg_color #{if($variant == 'light', transparentize(black, .2), white)};
++@define-color dialog_bg_color #{if($variant == 'light', #fafafa, "@dark_1")};
++@define-color dialog_fg_color #{if($variant == 'light', transparentize(black, .2), "@light_2")};
+ 
+ // Popovers
+-@define-color popover_bg_color #{if($variant == 'light', #ffffff, #383838)};
+-@define-color popover_fg_color #{if($variant == 'light', transparentize(black, .2), white)};
++@define-color popover_bg_color #{if($variant == 'light', #ffffff, "@dark_1")};
++@define-color popover_fg_color #{if($variant == 'light', transparentize(black, .2), "@light_2")};
+ 
+ // Thumbnails
+-@define-color thumbnail_bg_color #{if($variant == 'light', #ffffff, #383838)};
+-@define-color thumbnail_fg_color #{if($variant == 'light', transparentize(black, .2), white)};
++@define-color thumbnail_bg_color #{if($variant == 'light', #ffffff, "@dark_1")};
++@define-color thumbnail_fg_color #{if($variant == 'light', transparentize(black, .2), "@light_2")};
+ 
+ // Miscellaneous
+ @define-color shade_color #{if($variant == 'light', transparentize(black, .93), transparentize(black, .64))};
+diff --git a/src/stylesheet/_palette.scss b/src/stylesheet/_palette.scss
+index dd59a71..ddafc1c 100644
+--- a/src/stylesheet/_palette.scss
++++ b/src/stylesheet/_palette.scss
+@@ -1,48 +1,68 @@
+-$blue_1: #99c1f1;
+-$blue_2: #62a0ea;
+-$blue_3: #3584e4;
+-$blue_4: #1c71d8;
+-$blue_5: #1a5fb4;
+-$green_1: #8ff0a4;
+-$green_2: #57e389;
+-$green_3: #33d17a;
+-$green_4: #2ec27e;
+-$green_5: #26a269;
+-$yellow_1: #f9f06b;
+-$yellow_2: #f8e45c;
+-$yellow_3: #f6d32d;
+-$yellow_4: #f5c211;
+-$yellow_5: #e5a50a;
+-$orange_1: #ffbe6f;
+-$orange_2: #ffa348;
+-$orange_3: #ff7800;
+-$orange_4: #e66100;
+-$orange_5: #c64600;
+-$red_1: #f66151;
+-$red_2: #ed333b;
+-$red_3: #e01b24;
+-$red_4: #c01c28;
+-$red_5: #a51d2d;
+-$purple_1: #dc8add;
+-$purple_2: #c061cb;
+-$purple_3: #9141ac;
+-$purple_4: #813d9c;
+-$purple_5: #613583;
+-$brown_1: #cdab8f;
+-$brown_2: #b5835a;
+-$brown_3: #986a44;
+-$brown_4: #865e3c;
+-$brown_5: #63452c;
+-$light_1: #ffffff;
+-$light_2: #f6f5f4;
+-$light_3: #deddda;
+-$light_4: #c0bfbc;
+-$light_5: #9a9996;
+-$dark_1: #77767b;
+-$dark_2: #5e5c64;
+-$dark_3: #3d3846;
+-$dark_4: #241f31;
+-$dark_5: #000000;
++//GNOME Color Palette
++$pale: #F9F8F5;
++$grey: #272822;
++$dark_grey: #1d1e19;
++$dust_grey: #6e7066;
++$yellow: #e0db75;
++$orange: #fd972c;
++$purple: #ae80fd;
++$red: #e42069;
++$blue: #65d9ee;
++$green: #a6e33a;
++
++$blue_1: lighten($green, 10%);
++$blue_2: $green;
++$blue_3: darken($green, 10%);
++$blue_4: darken($green, 20%);
++$blue_5: darken($green, 30%);
++
++$green_1: lighten($blue, 10%);
++$green_2: $blue;
++$green_3: darken($blue, 10%);
++$green_4: darken($blue, 20%);
++$green_5: darken($blue, 30%);
++
++$yellow_1: lighten($yellow, 10%);
++$yellow_2: $yellow;
++$yellow_3: darken($yellow, 10%);
++$yellow_4: darken($yellow, 20%);
++$yellow_5: darken($yellow, 30%);
++
++$orange_1: lighten($orange, 10%);
++$orange_2: $orange;
++$orange_3: darken($orange, 10%);
++$orange_4: darken($orange, 20%);
++$orange_5: darken($orange, 30%);
++
++$red_1: lighten($red, 10%);
++$red_2: $red;
++$red_3: darken($red, 10%);
++$red_4: darken($red, 20%);
++$red_5: darken($red, 30%);
++
++$purple_1: lighten($purple, 10%);
++$purple_2: $purple;
++$purple_3: darken($purple, 10%);
++$purple_4: darken($purple, 20%);
++$purple_5: darken($purple, 30%);
++
++$brown_1: lighten($dark_grey, 10%);
++$brown_2: $dark_grey;
++$brown_3: darken($dark_grey, 10%);
++$brown_4: darken($dark_grey, 20%);
++$brown_5: darken($dark_grey, 30%);
++
++$light_1: lighten($pale, 10%);
++$light_2: $pale;
++$light_3: darken($pale, 10%);
++$light_4: darken($pale, 20%);
++$light_5: darken($pale, 30%);
++
++$dark_1: lighten($grey, 2%);
++$dark_2: $grey;
++$dark_3: darken($grey, 10%);
++$dark_4: darken($grey, 20%);
++$dark_5: darken($grey, 30%);
+ 
+ // Sass thinks we're using the colors in the variables as strings and may shoot
+ // warning, it's innocuous and can be defeated by using #{$var}.
