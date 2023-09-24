@@ -1,8 +1,8 @@
 diff --git a/src/stylesheet/_defaults.scss b/src/stylesheet/_defaults.scss
-index d671f4a..d0d9d65 100644
+index 76cc94d..7f1104a 100644
 --- a/src/stylesheet/_defaults.scss
 +++ b/src/stylesheet/_defaults.scss
-@@ -32,36 +32,36 @@
+@@ -32,49 +32,49 @@
  @define-color error_color #{if($variant == 'dark', #ff7b63, "@red_4")};
  
  // Window
@@ -18,14 +18,30 @@ index d671f4a..d0d9d65 100644
 +@define-color view_fg_color #{if($variant == 'light', transparentize(black, .2), "@light_2")};
  
  // Header bar, search bar, tab bar
--@define-color headerbar_bg_color #{if($variant == 'light', #ebebeb, #303030)};
+-@define-color headerbar_bg_color #{if($variant == 'light', #ffffff, #303030)};
 -@define-color headerbar_fg_color #{if($variant == 'light', transparentize(black, .2), white)};
 -@define-color headerbar_border_color #{if($variant == 'light', transparentize(black, .2), white)};
-+@define-color headerbar_bg_color #{if($variant == 'light', #ebebeb, "@dark_1")};
++@define-color headerbar_bg_color #{if($variant == 'light', #ffffff, "@dark_1")};
 +@define-color headerbar_fg_color #{if($variant == 'light', transparentize(black, .2), "@light_2")};
 +@define-color headerbar_border_color #{if($variant == 'light', transparentize(black, .2), "@light_2")};
  @define-color headerbar_backdrop_color @window_bg_color;
- @define-color headerbar_shade_color #{if($variant == 'light', transparentize(black, .93), transparentize(black, .64))};
+ @define-color headerbar_shade_color #{if($variant == 'light', transparentize(black, .88), transparentize(black, .64))};
+ @define-color headerbar_darker_shade_color #{if($variant == 'light', transparentize(black, .88), transparentize(black, .1))};
+ 
+ // Split pane views
+-@define-color sidebar_bg_color #{if($variant == 'light', #ebebeb, #303030)};
+-@define-color sidebar_fg_color #{if($variant == 'light', transparentize(black, .2), white)};
++@define-color sidebar_bg_color #{if($variant == 'light', #ebebeb, "@dark_1")};
++@define-color sidebar_fg_color #{if($variant == 'light', transparentize(black, .2), "@light_2")};
+ @define-color sidebar_backdrop_color #{if($variant == 'light', #f2f2f2, #2a2a2a)};
+ @define-color sidebar_shade_color #{if($variant == 'light', transparentize(black, .93), transparentize(black, .64))};
+ 
+-@define-color secondary_sidebar_bg_color #{if($variant == 'light', #f3f3f3, #2a2a2a)};
+-@define-color secondary_sidebar_fg_color #{if($variant == 'light', transparentize(black, .2), white)};
++@define-color secondary_sidebar_bg_color #{if($variant == 'light', #f3f3f3, "@dark_2")};
++@define-color secondary_sidebar_fg_color #{if($variant == 'light', transparentize(black, .2), "@light_2")};
+ @define-color secondary_sidebar_backdrop_color #{if($variant == 'light', #f6f6f6, #272727)};
+ @define-color secondary_sidebar_shade_color #{if($variant == 'light', transparentize(black, .93), transparentize(black, .64))};
  
  // Cards, boxed lists
 -@define-color card_bg_color #{if($variant == 'light', #ffffff, transparentize(white, .92))};
@@ -45,6 +61,7 @@ index d671f4a..d0d9d65 100644
 -@define-color popover_fg_color #{if($variant == 'light', transparentize(black, .2), white)};
 +@define-color popover_bg_color #{if($variant == 'light', #ffffff, "@dark_1")};
 +@define-color popover_fg_color #{if($variant == 'light', transparentize(black, .2), "@light_2")};
+ @define-color popover_shade_color #{if($variant == 'light', transparentize(black, .93), transparentize(black, .64))};
  
  // Thumbnails
 -@define-color thumbnail_bg_color #{if($variant == 'light', #ffffff, #383838)};
@@ -55,10 +72,10 @@ index d671f4a..d0d9d65 100644
  // Miscellaneous
  @define-color shade_color #{if($variant == 'light', transparentize(black, .93), transparentize(black, .64))};
 diff --git a/src/stylesheet/_palette.scss b/src/stylesheet/_palette.scss
-index dd59a71..ddafc1c 100644
+index dd59a71..cbe9ea2 100644
 --- a/src/stylesheet/_palette.scss
 +++ b/src/stylesheet/_palette.scss
-@@ -1,48 +1,68 @@
+@@ -1,48 +1,69 @@
 -$blue_1: #99c1f1;
 -$blue_2: #62a0ea;
 -$blue_3: #3584e4;
@@ -104,6 +121,7 @@ index dd59a71..ddafc1c 100644
 -$dark_3: #3d3846;
 -$dark_4: #241f31;
 -$dark_5: #000000;
++
 +//GNOME Color Palette
 +$pale: #F9F8F5;
 +$grey: #272822;

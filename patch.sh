@@ -53,7 +53,7 @@ libadwaita () {
     cd $dir/libadwaita
     meson --prefix /usr . _build
     ninja -C _build
-    ninja -C _build install
+    sudo ninja -C _build install
 }
 
 clear () {
