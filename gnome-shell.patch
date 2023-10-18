@@ -4,11 +4,11 @@ index 8bb3b4b..378d445 100644
 +++ b/data/theme/gnome-shell-sass/_colors.scss
 @@ -6,7 +6,7 @@
  $is_highcontrast:false;
- 
+
  // base color for light theme
 -$_dark_base_color: desaturate($dark_4, 100%);
 +$_dark_base_color: $dark_grey;
- 
+
  $base_color: if($variant == 'light', $light_1, $_dark_base_color);
  $bg_color: if($variant == 'light', $light_2, lighten($base_color, 5%));
 diff --git a/data/theme/gnome-shell-sass/_palette.scss b/data/theme/gnome-shell-sass/_palette.scss
@@ -131,12 +131,12 @@ diff --git a/data/theme/gnome-shell-sass/widgets/_panel.scss b/data/theme/gnome-
 index 650d4fa..5dc8967 100644
 --- a/data/theme/gnome-shell-sass/widgets/_panel.scss
 +++ b/data/theme/gnome-shell-sass/widgets/_panel.scss
-@@ -1,7 +1,7 @@
- /* Top Bar */
- // a.k.a. the panel
- 
+@@ -3,7 +3,7 @@
+
+ $privacy_indicator_color: $orange_3;
+
 -$panel_bg_color: if($variant == 'light', $light_3, $dark_5);
 +$panel_bg_color: $grey;
  $panel_fg_color: if($variant == 'light', $fg_color, darken($fg_color, 5%));
  $panel_border_color: if($variant == 'light', darken($panel_bg_color, 2%), $panel_bg_color);
- 
+
