@@ -13,7 +13,7 @@ dir=$(dirname "$(readlink -f "$0")")
 
 setup () {
     [ -d gnome-shell ] || (\
-        git clone --depth 1 --branch 45.0 https://gitlab.gnome.org/GNOME/gnome-shell.git gnome-shell && \
+        git clone --depth 1 --branch 45.1 https://gitlab.gnome.org/GNOME/gnome-shell.git gnome-shell && \
         git -C gnome-shell apply ../gnome-shell.patch
     )
     [ -d gtk3 ] || (\
@@ -27,10 +27,11 @@ setup () {
 }
 
 gnomeshell () {
-    target=/usr/share/gnome-shell/theme/qwelias.css
+    target=/usr/share/themes/qwelias/gnome-shell/gnome-shell.css
     cd $dir/gnome-shell/data/theme
     rm -rf gnome-shell.css
     sassc -a gnome-shell-dark.scss gnome-shell.css
+    sudo mkdir -p $target
     sudo cp gnome-shell.css $target
     gnome-extensions disable gnome-core@qwelias.me
     gnome-extensions enable gnome-core@qwelias.me
