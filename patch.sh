@@ -13,7 +13,7 @@ dir=$(dirname "$(readlink -f "$0")")
 
 setup () {
     [ -d gnome-shell ] || (\
-        git clone --depth 1 --branch 45.1 https://gitlab.gnome.org/GNOME/gnome-shell.git gnome-shell && \
+        git clone --depth 1 --branch 45.2 https://gitlab.gnome.org/GNOME/gnome-shell.git gnome-shell && \
         git -C gnome-shell apply ../gnome-shell.patch
     )
     [ -d gtk3 ] || (\
@@ -21,13 +21,13 @@ setup () {
         git -C gtk3 apply ../gtk.patch
     )
     [ -d libadwaita ] || (\
-        git clone --depth 1 --branch 1.4.0 https://gitlab.gnome.org/GNOME/libadwaita.git libadwaita && \
+        git clone --depth 1 --branch 1.4.2 https://gitlab.gnome.org/GNOME/libadwaita.git libadwaita && \
         git -C libadwaita apply ../libadwaita.patch
     )
 }
 
 gnomeshell () {
-    target=/usr/share/themes/qwelias/gnome-shell/gnome-shell.css
+    target=/usr/share/themes/qwelias/gnome-shell
     cd $dir/gnome-shell/data/theme
     rm -rf gnome-shell.css
     sassc -a gnome-shell-dark.scss gnome-shell.css
