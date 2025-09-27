@@ -13,17 +13,17 @@ dir=$(dirname "$(readlink -f "$0")")
 
 setup () {
     [ -d gnome-shell ] || (\
-        git clone --depth 1 --branch 45.2 https://gitlab.gnome.org/GNOME/gnome-shell.git gnome-shell && \
-        git -C gnome-shell apply ../gnome-shell.patch
+        git clone --depth 1 --branch 49.0 https://gitlab.gnome.org/GNOME/gnome-shell.git gnome-shell
+        git -C gnome-shell apply --ignore-space-change --ignore-whitespace ../gnome-shell.patch
     )
-    [ -d gtk3 ] || (\
-        git clone --depth 1 --branch gtk-3-24 https://gitlab.gnome.org/GNOME/gtk.git gtk3 && \
-        git -C gtk3 apply ../gtk.patch
-    )
-    [ -d libadwaita ] || (\
-        git clone --depth 1 --branch 1.4.2 https://gitlab.gnome.org/GNOME/libadwaita.git libadwaita && \
-        git -C libadwaita apply ../libadwaita.patch
-    )
+    # [ -d gtk3 ] || (\
+    #     git clone --depth 1 --branch gtk-3-24 https://gitlab.gnome.org/GNOME/gtk.git gtk3 && \
+    #     git -C gtk3 apply ../gtk.patch
+    # )
+    # [ -d libadwaita ] || (\
+    #     git clone --depth 1 --branch 1.7.0 https://gitlab.gnome.org/GNOME/libadwaita.git libadwaita && \
+    #     git -C libadwaita apply ../libadwaita.patch
+    # )
 }
 
 gnomeshell () {

@@ -1,18 +1,35 @@
 diff --git a/data/theme/gnome-shell-sass/_colors.scss b/data/theme/gnome-shell-sass/_colors.scss
-index 8bb3b4b..378d445 100644
+index 0412e4f..24dbd15 100644
 --- a/data/theme/gnome-shell-sass/_colors.scss
 +++ b/data/theme/gnome-shell-sass/_colors.scss
-@@ -6,7 +6,7 @@
- $is_highcontrast:false;
+@@ -9,7 +9,7 @@
 
- // base color for light theme
--$_dark_base_color: desaturate($dark_4, 100%);
-+$_dark_base_color: $dark_grey;
+ // global colors
+ $base_color: if($variant == 'light', $light_1, $_base_color_dark);
+-$bg_color: if($variant == 'light', $_base_color_light, #36363a);
++$bg_color: if($variant == 'light', $_base_color_light, $grey);
+ $fg_color: if($variant == 'light', $_base_color_dark, $light_1);
 
- $base_color: if($variant == 'light', $light_1, $_dark_base_color);
- $bg_color: if($variant == 'light', $light_2, lighten($base_color, 5%));
+ // OSD elements
+diff --git a/data/theme/gnome-shell-sass/_default-colors.scss b/data/theme/gnome-shell-sass/_default-colors.scss
+index df7bfb6..d826cfc 100644
+--- a/data/theme/gnome-shell-sass/_default-colors.scss
++++ b/data/theme/gnome-shell-sass/_default-colors.scss
+@@ -1,8 +1,10 @@
++@import '_palette.scss';
++
+ // Named Colors
+
+ // base colors
+-$_base_color_dark: #222226;
+-$_base_color_light: #fafafb;
++$_base_color_dark: $dark_grey;
++$_base_color_light: $pale;
+
+ // accent colors
+ $accent_color: if($variant== 'light', -st-accent-color, st-mix(-st-accent-color, $light_1, 60%));
 diff --git a/data/theme/gnome-shell-sass/_palette.scss b/data/theme/gnome-shell-sass/_palette.scss
-index 78847d9..88b5d1a 100644
+index 78847d9..0fce959 100644
 --- a/data/theme/gnome-shell-sass/_palette.scss
 +++ b/data/theme/gnome-shell-sass/_palette.scss
 @@ -1,46 +1,65 @@
@@ -74,17 +91,17 @@ index 78847d9..88b5d1a 100644
 +$blue: #65d9ee;
 +$green: #a6e33a;
 +
-+$blue_1: lighten($green, 10%);
-+$blue_2: $green;
-+$blue_3: darken($green, 10%);
-+$blue_4: darken($green, 20%);
-+$blue_5: darken($green, 30%);
++$blue_1: lighten($blue, 10%);
++$blue_2: $blue;
++$blue_3: darken($blue, 10%);
++$blue_4: darken($blue, 20%);
++$blue_5: darken($blue, 30%);
 +
-+$green_1: lighten($blue, 10%);
-+$green_2: $blue;
-+$green_3: darken($blue, 10%);
-+$green_4: darken($blue, 20%);
-+$green_5: darken($blue, 30%);
++$green_1: lighten($green, 10%);
++$green_2: $green;
++$green_3: darken($green, 10%);
++$green_4: darken($green, 20%);
++$green_5: darken($green, 30%);
 +
 +$yellow_1: lighten($yellow, 10%);
 +$yellow_2: $yellow;
@@ -127,16 +144,23 @@ index 78847d9..88b5d1a 100644
 +$dark_3: darken($grey, 10%);
 +$dark_4: darken($grey, 20%);
 +$dark_5: darken($grey, 30%);
+\ No newline at end of file
 diff --git a/data/theme/gnome-shell-sass/widgets/_panel.scss b/data/theme/gnome-shell-sass/widgets/_panel.scss
-index 650d4fa..5dc8967 100644
+index 1b84dc2..b2faf8f 100644
 --- a/data/theme/gnome-shell-sass/widgets/_panel.scss
 +++ b/data/theme/gnome-shell-sass/widgets/_panel.scss
-@@ -3,7 +3,7 @@
+@@ -7,11 +7,12 @@ $recording_indicator_color: $red_4;
+ $transparent_panel_fg_color: $light_1;    // always white for transparent lock screens
+ $system_panel_fg_color: $system_fg_color; // always light for lockscreen, overview
 
- $privacy_indicator_color: $orange_3;
+-$panel_height: 2.2em;
++$panel_height: 2em;
+ $panel_transition_duration: 250ms; // same as the overview transition duration
 
--$panel_bg_color: if($variant == 'light', $light_3, $dark_5);
-+$panel_bg_color: $grey;
- $panel_fg_color: if($variant == 'light', $fg_color, darken($fg_color, 5%));
- $panel_border_color: if($variant == 'light', darken($panel_bg_color, 2%), $panel_bg_color);
-
+ #panel {
+-  background-color: $panel_bg_color;
++  font-size: 0.8em;
++  background-color: $grey;
+   font-weight: bold;
+   height: $panel_height;
+   @extend %numeric;
