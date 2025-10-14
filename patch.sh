@@ -15,6 +15,7 @@ setup () {
     [ -d gnome-shell ] || (\
         git clone --depth 1 --branch 49.0 https://gitlab.gnome.org/GNOME/gnome-shell.git gnome-shell
         git -C gnome-shell apply --ignore-space-change --ignore-whitespace ../gnome-shell.patch
+        sed -i 's/-st-accent-color/\$green_4/g' $(grep -rl -- -st-accent-color gnome-shell | grep \.scss)
     )
     [ -d gtk3 ] || (\
         git clone --depth 1 --branch gtk-3-24 https://gitlab.gnome.org/GNOME/gtk.git gtk3
